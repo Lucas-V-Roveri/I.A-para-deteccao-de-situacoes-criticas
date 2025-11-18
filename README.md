@@ -1,16 +1,15 @@
 # Detecção de Fogo e Fumaça - Aplicativo Web
 
 
-
-\## Propósito
+## Propósito
 
 
 
 Este projeto é um aplicativo web construído com Flask que utiliza um modelo de detecção de objetos YOLO (You Only Look Once) para detectar fogo e fumaça em fluxos de vídeo. Ele suporta dois modos de entrada:
 
-\- Carregamento de um arquivo de vídeo MP4 para análise.
+- Carregamento de um arquivo de vídeo MP4 para análise.
 
-\- Uso de uma webcam para detecção em tempo real.
+- Uso de uma webcam para detecção em tempo real.
 
 
 
@@ -21,22 +20,21 @@ O aplicativo processa os quadros de vídeo, anota as detecções com caixas deli
 A interface é amigável para dispositivos móveis, com texto em português para títulos, botões e alertas.
 
 
-
-\## Requisitos
-
-
-
-\### Software
-
-\- Python 3.8 ou superior
-
-\- Uma webcam (para o modo em tempo real; opcional, mas necessária para a funcionalidade da webcam)
-
-\- Navegador com permissões de acesso à webcam (para o modo em tempo real)
+## Requisitos
 
 
 
-\### Bibliotecas
+### Software
+
+- Python 3.8 ou superior
+
+- Uma webcam (para o modo em tempo real; opcional, mas necessária para a funcionalidade da webcam)
+
+- Navegador com permissões de acesso à webcam (para o modo em tempo real)
+
+
+
+### Bibliotecas
 
 Instale os seguintes pacotes Python usando pip:
 
@@ -48,15 +46,15 @@ pip install flask opencv-python ultralytics
 
 
 
-\### Modelo
+### Modelo
 
-\- Um modelo YOLO pré-treinado para detecção de fogo/fumaça. Coloque o arquivo de pesos do modelo (`best.pt`) em um diretório `weights/` na raiz do projeto.
+- Um modelo YOLO pré-treinado para detecção de fogo/fumaça. Coloque o arquivo de pesos do modelo (`best.pt`) em um diretório `weights/` na raiz do projeto.
 
 &nbsp; - Você pode treinar seu próprio modelo usando Ultralytics YOLO ou usar um pré-treinado adequado para as classes de fogo/fumaça.
 
 
 
-\### Estrutura de Diretórios
+### Estrutura de Diretórios
 
 Certifique-se da seguinte estrutura:
 
@@ -84,11 +82,11 @@ projeto/
 
 
 
-\## Como Executar
+## Como Executar
 
 
 
-1\. \*\*Clonar ou Configurar o Projeto\*\*:
+1. **Clonar ou Configurar o Projeto**:
 
 &nbsp;  - Salve o código principal em um arquivo chamado `app.py`.
 
@@ -98,7 +96,7 @@ projeto/
 
 
 
-2\. \*\*Instalar Dependências\*\*:
+2. **Instalar Dependências**:
 
 &nbsp;  ```
 
@@ -108,7 +106,7 @@ projeto/
 
 
 
-3\. \*\*Executar o Aplicativo\*\*:
+3. **Executar o Aplicativo**:
 
 &nbsp;  ```
 
@@ -120,7 +118,7 @@ projeto/
 
 
 
-4\. \*\*Acessar o Aplicativo\*\*:
+4. **Acessar o Aplicativo**:
 
 &nbsp;  - Abra um navegador web e vá para `http://127.0.0.1:5000/`.
 
@@ -132,7 +130,7 @@ projeto/
 
 
 
-5\. \*\*Notas\*\*:
+5. **Notas**:
 
 &nbsp;  - Vídeos carregados são salvos temporariamente em `uploads/` e podem ser excluídos após o processamento (descomente `os.remove(video\_path)` se desejado).
 
@@ -143,6 +141,7 @@ projeto/
 &nbsp;  - Para produção, desative o modo de depuração (`app.run(debug=False)`) e considere hospedar com um servidor WSGI como Gunicorn.
 
 &nbsp;  - Testado em ambientes locais; certifique-se de que o OpenCV pode acessar sua webcam (ex.: índice 0; ajuste se necessário).
+
 
 
 
