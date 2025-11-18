@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecção em Tempo Real</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        #video {
+            width: 100%;
+            max-width: 700px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        #alert {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #95a5a6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #7f8c8d;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            #alert {
+                font-size: 1.2em;
+                padding: 10px;
+            }
+        }
+    </style>
+    <script>
+        function checkAlert() {
+            fetch('/get_alert')
+                .then(response => response.json())
+                .then(data => {
+                    const alertDiv = document.getElementById('alert');
+                    if (data.alert) {
+                        alertDiv.innerText = 'ALERTA: Fogo ou Fumaça Detectado!';
+                        alertDiv.style.color = 'white';
+                        alertDiv.style.backgroundColor = 'red';
+                    } else {
+                        alertDiv.innerText = 'Nenhuma Detecção';
+                        alertDiv.style.color = 'white';
+                        alertDiv.style.backgroundColor = 'green';
+                    }
+                });
+            setTimeout(checkAlert, 1000);  // Check every second
+        }
+        window.onload = checkAlert;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Fluxo de Detecção ao Vivo</h1>
+        <img id="video" src="/video_feed" alt="Fluxo de Vídeo">
+        <div id="alert">Verificando...</div>
+        <a href="/" class="back-link">Voltar para Carregar</a>
+    </div>
+</body>
+</html>
