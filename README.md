@@ -1,4 +1,4 @@
-\# Detecção de Fogo e Fumaça - Aplicativo Web
+# Detecção de Fogo e Fumaça - Aplicativo Web
 
 
 
@@ -143,6 +143,7 @@ projeto/
 &nbsp;  - Para produção, desative o modo de depuração (`app.run(debug=False)`) e considere hospedar com um servidor WSGI como Gunicorn.
 
 &nbsp;  - Testado em ambientes locais; certifique-se de que o OpenCV pode acessar sua webcam (ex.: índice 0; ajuste se necessário).
+
 
 
 
